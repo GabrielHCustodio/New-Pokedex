@@ -15,11 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 60px 0 60px;
+    padding: 10px 60px 10px 60px;
+    background-color: #ef5350;
 }
 
 .container .container-header #logo{
-    width: 130px;
+    width: 120px;
 }
 
 .container .search {
@@ -27,18 +28,28 @@
     align-items: center;
 }
 
-.container .search input[type=text] {
+.container .search #nameSearch {
     width: 200px;
     height: 30px;
     padding-left: 10px;
     margin-right: 20px;
     outline: none;
     border-radius: 20px;
-    border: 2px solid #ccc;
+    border: 2px solid rgb(241, 241, 241);
 }
 
-.container .search #research {
+.container .search #buttonSearch {
+    width: 80px;
+    height: 23px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(19, 19, 126);
+}
+
+.container .search #buttonSearch:hover {
     cursor: pointer;
+    opacity: 0.9;
 }
 
 /* BOXES */
@@ -53,18 +64,15 @@
 }
 
 .container .container-boxes .box {
-    width: 300px;
-    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 250px;
-    border: 2px solid #ccc;
     margin-top: 40px;
+    margin-left: 10px;
 }
 
 .container .container-boxes .box img {
-    width: 160px;
+    width: 110px;
 }
 
 .container .container-boxes .box .information {
