@@ -1,21 +1,63 @@
-function pegarPokemons() {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=40')
+/*pegarPokemons(40)
+
+function pegarPokemons(quantidade) {
+    fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
     .then(response => response.json())
     .then(allPokemons => {
         var pokemons = []
 
         allPokemons.results.map((val) => {
-            const name = val.name
+            fetch(val.url)
+            .then(response => response.json())
+            .then(pokemonSingle => {
+                pokemons.push({
+                    imagem: pokemonSingle.sprites.front_default
+                })
+            })
 
-            pokemons.push(name)
+            if(pokemons.length == quantidade) {
+                var containerBoxes = document.querySelector('.container-boxes')
+                containerBoxes.innerHTML = ""
+
+                pokemons.map((val) => {
+                    containerBoxes.innerHTML +=`
+                        <div class="box">
+                            <img src="`+val.imagem+`">
+                        </div>
+                        <!--box-->
+                    `
+                })
+            }
+        })
+    })
+} */
+pokemons(3)
+function pokemons(quantidade) {
+    fetch('https://pokeapi.co/api/v2/pokemon?limit='+quantidade)
+    .then(response => response.json())
+    .then(allPokemons => {
+        var imagePokemon = []
+
+        allPokemons.results.map((val) => {
+            var image = val.url
+            imagePokemon.push(image)
         })
 
-        console.log(pokemons)
+            var containerBoxes = document.querySelector('.container-boxes')
+            containerBoxes.innerHTML+=`
+                <div class="box">
+                    <img src="`+imagePokemon+`">
+                </div>
+                <!--box-->
+            `
+
+            console.log(imagePokemon)
     })
 }
 
-pegarPokemons()
 
+
+/* Procurar pokemons 
 const buttonSearch = document.querySelector('#buttonSearch')
 
 buttonSearch.addEventListener('click' , () => {
@@ -27,4 +69,4 @@ buttonSearch.addEventListener('click' , () => {
     }
 
     research()
-})
+})*/
